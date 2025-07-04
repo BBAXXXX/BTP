@@ -1,0 +1,37 @@
+@Metadata.layer: #CORE
+/*@UI: {
+headerInfo: { typeName: 'Bank Kaziemirz I Odnowiciel',
+title: { type: #STANDARD, label: 'Bank Kazimierz', value: 'AccNum' } },
+presentationVariant: [{ sortOrder: [{ by: 'AccNum', direction: #ASC }] }] }*/ 
+
+annotate view zc_rap_account
+    with 
+{
+@UI.facet: [ { id: 'BankKazimierz', 
+purpose: #STANDARD,
+type: #IDENTIFICATION_REFERENCE,
+label: 'Bank',
+position: 10 } ]
+@UI:{lineItem:[{position:10}], //column visible
+identification:[{position:10}]}
+ContractInt;
+@UI:{lineItem:[{position:20}],
+identification:[{position:20}],
+selectionField:[{position:20}]}
+BankKey;
+@UI:{lineItem:[{position:30}],
+identification:[{position:30}] }
+BankLand;
+@UI: { lineItem: [ { position: 40 } ],
+identification: [ { position: 40 } ] }
+AccNum;
+@UI: { lineItem: [ { position: 50 } ],
+identification: [ { position: 50 } ] }
+Iban;
+/*Status;
+@UI: { lineItem: [ { position: 60 },
+{ type: #FOR_ACTION, dataAction: 'closeAccount', label: 'Close Account'} ],
+identification: [ { position: 60 },
+{ type: #FOR_ACTION, dataAction: 'closeAccount', label: 'Close Account'} ] 
+}*/
+}

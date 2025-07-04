@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_RAP_ACCOUNT'
+define service ZUI_RAP_ACCOUNT {
+  expose zc_rap_account;
+}

@@ -1,0 +1,30 @@
+managed implementation in class zbp_i_rap_account unique;
+//strict ( 2 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for zi_rap_account //alias <alias_name>
+persistent table ztab_account
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly,numbering : managed ) ContractInt;
+  field ( readonly ) Iban;
+
+  determination determineIban on save { create; }
+
+  mapping for ztab_account
+  {
+  ContractInt = contract_int;
+  AccCurr = ac_currency;
+  AccNum = acnum;
+  BankKey = bankkey;
+  BankLand = bankland;
+  Iban = iban;
+  Swift = swift;
+  CrUsr = crusr;
+  TmstmpCr = timestamp_create;
+  }
+}
